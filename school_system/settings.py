@@ -10,7 +10,11 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import os
 from pathlib import Path
+
+
+from django.conf.global_settings import MEDIA_ROOT
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,10 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-2mkxz7y8kry+6dd*y=7nk*i(d(dao1wewml32^g&t-4bhsrw=*'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG =True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -44,6 +47,9 @@ INSTALLED_APPS = [
     'languages',
     # 'world_languages',
     'django_countries',
+    'trainer',
+    'course',
+    'calendarr'
     # 'django.contrib.django_counties',
 
 ]
@@ -63,7 +69,13 @@ ROOT_URLCONF = 'school_system.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),
+            os.path.join(BASE_DIR, 'student', 'templates', 'student'),
+            os.path.join(BASE_DIR, 'course', 'templates', 'course'),
+            os.path.join(BASE_DIR, 'trainer', 'templates', 'trainer'),
+            os.path.join(BASE_DIR, 'calendarr', 'templates', 'calendarr'),
+        ],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
