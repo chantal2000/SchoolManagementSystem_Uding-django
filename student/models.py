@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 from datetime import datetime
 from django_countries.fields import CountryField
 from django.db.models.fields import PositiveBigIntegerField
